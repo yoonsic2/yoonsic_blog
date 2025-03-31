@@ -752,3 +752,303 @@ a {
     flex: 0 0 100%;
     margin: 0px 180px;
 }
+
+/* --- 반응형 웹 디자인을 위한 미디어 쿼리 --- */
+
+/* 중간 화면 크기 (예: 태블릿) - 필요시 여기에 추가 스타일링 */
+@media (max-width: 1024px) {
+    .header_section .header_sub {
+        margin: 0 50px; /* 좌우 여백 줄이기 */
+    }
+
+    .profile_details img {
+        width: 300px; /* 이미지 약간 줄이기 */
+    }
+
+    .textStyle span {
+        font-size: 1.8vw; /* 중간 크기 조정 */
+    }
+    .textStyle span:first-child {
+        width: 10vw; /* 라벨 너비 조정 */
+        margin-right: 2vw;
+    }
+
+    .project_section {
+        padding: 80px 30px; /* 패딩 줄이기 */
+    }
+
+    .comp_section {
+        width: 48%; /* 약간 넓게 */
+    }
+
+    .skill_section .about_sub {
+        width: 90%; /* 슬라이더 영역 넓히기 */
+    }
+}
+
+
+/* 작은 화면 크기 (예: 모바일) */
+@media (max-width: 768px) {
+    /* --- 헤더 --- */
+    .header_section .header_sub {
+        margin: 0 20px; /* 모바일용 좌우 여백 */
+        font-size: 1.5rem; /* 전체적인 헤더 폰트 크기 조정 */
+    }
+
+    .header_logo {
+        font-size: 1.5rem !important; /* 로고 크기 고정 또는 rem 사용 */
+    }
+
+    /* 모바일에서는 네비게이션 항목을 숨기거나 다른 방식으로 표시할 수 있음 */
+    /* 예시: 네비게이션 항목 숨기기 (햄버거 메뉴 구현 시 사용) */
+    /*
+    .header_section .header_sub nav {
+        display: none;
+    }
+    */
+    /* 임시: 네비게이션 폰트 크기 및 간격 조정 */
+    .header_section .header_sub ul li {
+        font-size: 1rem;
+        padding-left: 15px; /* 간격 줄이기 */
+    }
+    .header_section .header_sub ul li:hover::after {
+        /* 모바일에서는 호버 효과가 불편할 수 있으므로 제거하거나 단순화 */
+        width: 0;
+    }
+
+
+    /* --- 메인 섹션 (#home) --- */
+    .main_section {
+        flex-direction: column; /* 세로 쌓기 */
+        text-align: center;
+        padding-top: 80px; /* 헤더 높이 고려 */
+        gap: 20px;
+    }
+
+    .main_section img {
+        width: 60%; /* 이미지 너비 조정 */
+        margin: 20px auto 0; /* 가운데 정렬 및 위 여백 */
+        order: 1; /* 이미지 아래로 */
+    }
+
+    .main_section .position {
+        margin: 0 auto; /* 가운데 정렬 */
+        max-width: 90%;
+        order: 2; /* 텍스트 위로 */
+        animation: none; /* 모바일에서 애니메이션 제거 (선택적) */
+        text-align: center;
+    }
+
+    .main_section .position .head_1 {
+        font-size: 6vw; /* 모바일용 폰트 크기 */
+        margin-bottom: 3vw;
+    }
+    .main_section .position .head_2 p,
+    .main_section .position .head_3 {
+        font-size: 4vw; /* 모바일용 폰트 크기 */
+        line-height: 1.5;
+    }
+    .head_2 {
+        justify-content: center; /* 가운데 정렬 */
+    }
+    .underline-highlight {
+        border-bottom-width: 1px; /* 밑줄 얇게 */
+    }
+
+    /* --- 프로필 섹션 (#profile) --- */
+    #profile h1, #project h1, #skill h1 {
+        font-size: 7vw; /* 섹션 제목 크기 조정 */
+        margin-top: 80px !important; /* 상단 여백 통일 */
+        margin-bottom: 5% !important;
+    }
+
+    .profile_details {
+        flex-direction: column; /* 세로 쌓기 */
+        gap: 30px;
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .profile_details img {
+        width: 70%; /* 이미지 너비 조정 */
+        max-width: 250px; /* 최대 너비 제한 */
+        margin: 0 auto; /* 가운데 정렬 */
+    }
+
+    .profile_text {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .textStyle {
+        flex-direction: column; /* 라벨과 값 세로 쌓기 */
+        align-items: center; /* 가운데 정렬 */
+        margin: 15px 0;
+    }
+
+    .textStyle span, .textStyle a {
+        font-size: 4vw; /* 모바일용 폰트 크기 */
+        text-align: center;
+    }
+    /* 이름:, 이메일: 같은 라벨 스타일 */
+    .textStyle span:first-child {
+        width: auto; /* 자동 너비 */
+        margin-right: 0; /* 오른쪽 여백 제거 */
+        margin-bottom: 5px; /* 값과의 간격 */
+        font-weight: 700; /* 약간 강조 */
+        text-align: center;
+    }
+    .textStyle span:last-child, .textStyle a {
+        font-weight: 400; /* 일반 굵기 */
+        color: #333;
+    }
+
+    .textStyle .label { /* 교육수료 라벨 */
+        width: auto;
+        text-align: center;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+    .textStyle .value { /* 교육수료 값 */
+        text-align: center;
+    }
+
+
+    /* --- 프로젝트 섹션 (#project) --- */
+    .project_section {
+        margin: 30px 0;
+        padding: 40px 15px; /* 상하좌우 패딩 줄이기 */
+    }
+
+    .project_section ul {
+        gap: 30px; /* 카드 간격 줄이기 */
+    }
+
+    .comp_section {
+        width: 90%; /* 카드 너비 거의 꽉 차게 */
+    }
+
+    .comp_section a .screen .textDeco {
+        font-size: 8vw; /* 모바일용 텍스트 크기 */
+    }
+
+    /* --- 스킬 섹션 (#skill) --- */
+    #skill h1 {
+        margin-bottom: -5% !important; /* 제목과 슬라이더 간격 조정 */
+    }
+    .skill_slider_container {
+        margin-top: 10%; /* 제목과 슬라이더 간격 조정 */
+    }
+
+    .skill_section .about_sub {
+        width: 95%; /* 슬라이더 영역 너비 */
+        height: auto; /* 높이 자동 조절 */
+    }
+    /* 슬라이더 내부 컨텐츠 마진 제거 */
+    .content_section1, .content_section2, .content_section3 {
+        margin: 0 auto; /* 좌우 마진 제거하고 가운데 정렬 */
+        padding: 0 5px; /* 약간의 내부 패딩 */
+    }
+    /* 슬라이더 이미지 높이 자동 조절 */
+    .skill_section .about_sub ul img {
+        height: auto; /* 이미지 높이 자동 */
+    }
+
+
+    .standard { /* 슬라이더 버튼 위치 조정 */
+        top: 50%; /* 수직 중앙으로 이동 */
+        transform: translateY(-50%);
+        width: 25px; /* 버튼 크기 약간 줄이기 */
+        height: 25px;
+    }
+    .prev_btn { left: 5px; }
+    .next_btn { right: 5px; }
+
+
+    /* --- 프로젝트 상세 페이지 (test01.html, test02.html) --- */
+    .pjt_section {
+        margin: 80px 10px 20px; /* 상단 여백 확보, 좌우/하단 줄이기 */
+    }
+
+    .pjt_section h1 {
+        font-size: 8vw; /* 제목 크기 */
+    }
+
+    .ts_section {
+        flex-direction: column; /* 세로 쌓기 */
+        margin: 10px 0;
+        align-items: center; /* 가운데 정렬 */
+        text-align: center;
+    }
+
+    .ts_section .ts_title {
+        width: 100%; /* 너비 꽉 채우기 */
+        font-size: 5vw; /* 모바일용 제목 크기 */
+        margin-bottom: 5px;
+    }
+
+    .ts_section .ts_content {
+        width: 95%; /* 너비 조정 */
+        font-size: 3.8vw; /* 모바일용 내용 크기 */
+        font-weight: 400; /* 가독성 위해 굵기 조정 */
+    }
+
+    .pjt_img {
+        padding: 30px 10px; /* 내부 패딩 조정 */
+        margin-top: 30px;
+        border-width: 1px; /* 테두리 얇게 */
+    }
+    .img_group {
+        padding: 20px; /* 내부 패딩 조정 */
+        gap: 15px; /* 이미지 간격 */
+    }
+    .img_group img {
+        max-width: 100%; /* 이미지 그룹 너비에 맞춤 */
+        border: none; /* 모바일에서 테두리 제거 (선택적) */
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* 그림자 약하게 */
+    }
+    .title_p {
+        font-size: 1.5rem; /* 이미지 그룹 제목 */
+    }
+
+
+    /* --- 푸터 --- */
+    .footer_section {
+        font-size: 1rem; /* 폰트 크기 줄이기 */
+        margin: 0 10px 10px; /* 여백 조정 */
+        padding: 5px;
+        position: static; /* 모바일에서는 static으로 변경하여 흐름 유지 */
+        text-align: center;
+        background-color: #f0f0f0; /* 배경색 추가 (선택적) */
+        width: auto; /* 너비 자동 */
+    }
+    .footer_section h1 {
+        font-size: 1rem;
+    }
+
+
+    /* --- 애니메이션 비활성화 (선택적) --- */
+    .hidden-on-load {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .translateX, .translateY {
+        animation: none;
+    }
+
+} /* End of @media (max-width: 768px) */
+
+
+/* 더 작은 화면을 위한 추가 조정 (선택적) */
+@media (max-width: 480px) {
+    .main_section .position .head_1 { font-size: 7vw; }
+    .main_section .position .head_2 p, .main_section .position .head_3 { font-size: 5vw; }
+    .profile_details img { width: 80%; }
+    .textStyle span, .textStyle a { font-size: 4.5vw; }
+    .ts_section .ts_title { font-size: 6vw; }
+    .ts_section .ts_content { font-size: 4.2vw; }
+    .title_p { font-size: 1.3rem; }
+    .header_section .header_sub ul li { font-size: 0.9rem; padding-left: 10px; }
+}
