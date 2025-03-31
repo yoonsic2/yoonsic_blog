@@ -10,1045 +10,671 @@ h1, h2, .head_3 {
 
 body, html {
     font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* 부드러운 스크롤 기본 적용 */
 }
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace
 }
 
-.App {
-    text-align: center
-}
-
-.App-logo {
-    height: 40vmin;
-    pointer-events: none
-}
 a {
     text-decoration: none;
     color: inherit;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        -webkit-animation: App-logo-spin 20s linear infinite;
-        animation: App-logo-spin 20s linear infinite
-    }
-}
-
-.App-header {
-    align-items: center;
-    background-color: #282c34;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    font-size: calc(10px + 2vmin);
-    justify-content: center;
-    min-height: 100vh
-}
-
-.App-link {
-    color: #61dafb
-}
-
-@-webkit-keyframes App-logo-spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg)
-    }
-    to {
-        -webkit-transform: rotate(1turn);
-        transform: rotate(1turn)
-    }
-}
-
-@keyframes App-logo-spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg)
-    }
-    to {
-        -webkit-transform: rotate(1turn);
-        transform: rotate(1turn)
-    }
-}
-
-.main_section {
-    display: flex;
-    justify-content: center; /* 가운데 정렬 */
-    align-items: center;     /* 수직 가운데 정렬 */
-    gap: 50px;               /* 이미지와 텍스트 사이 간격 */
-    padding-top: 20px;      /* 헤더와 거리 */
-    position: relative;
-}
-
-.main_section img {
-    width: 27%;
-    height: auto;
-    margin-left: 110px; /* 왼쪽 여백 */
-    margin-top: 50px;   /* 위쪽 여백 */
-    display: block;
-}
-.position {
-    position: static;
-    max-width: 600px;
-    animation: moveX 1.5s ease-in-out;
-}
-/* 상단 소개 문구 */
-.head_1 {
-    font-size: 2.2vw;
-    font-weight: 700;
-    line-height: 1.6;
-    margin-bottom: 1vw;
-    white-space: nowrap; /* 줄바꿈 허용 */
-}
-/* 이름과 "입니다!" 부분 */
-.head_2 {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-    flex-wrap: wrap; /* 작은 화면에서 줄바꿈 되도록 */
-}
-
-.head_3 {
-    font-size: 1.7vw;     /* 문장과 동일한 크기 */
-    font-weight: 500;     /* 문장 스타일과 맞춤 */
-}
-
-.head_2 p {
-    font-size: 1.7vw !important;
-    font-weight: 500;
-    line-height: 1.6;
-    margin: 0;
-
-    max-width: 100%; /* ★ 이걸로 줄바꿈 강제 방지 */
-    width: fit-content; /* 또는 auto도 가능 */
-    word-break: keep-all;
-}
-.underline-highlight {
-    display: inline-block;
-    border-bottom: 2px solid #e63946; /* 얇은 빨간 밑줄 */
-    line-height: 1;                  /* 줄 간격 최소화 */
-    padding-bottom: 1px;             /* 밑줄을 글자에 더 가깝게 */
-}
-
-.main_section .position {
-    max-width: 600px;
-    margin-right: 250px;
-    margin-top: -60px;
-}
-
-.main_section .position h1, .main_section .position p {
-    font-style: normal;
-    font-weight: 700
-}
-
-.main_section .position .head_1 {
-    font-size: 4.5vw;
-    margin-bottom: 0vw; /* 간격 줄이기 */
-}
-
-.main_section .position .head_2 {
-    align-items: baseline;
-    display: flex
-}
-
-.main_section .position .head_2 .head_3 {
-    color: #2c4a75;
-    font-size: 3vw;
-    font-weight: 700;
-}
-
-.main_section .position .head_2 p {
-    font-size: 2vw
-}
-
-.main_section .position .head_4 {
-    font-size: 1.5vw;
-    position: relative;
-    left: 1%; /* 오른쪽으로 이동 */
-}
-
-.main_section .position .head_4 p {
-    margin: 4px;
-}
-
-.translateX {
-    -webkit-animation: moveX 1.5s ease-in-out;
-    animation: moveX 1.5s ease-in-out;
-    transition-delay: 0s
-}
-
-@-webkit-keyframes moveX {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateX(-15%);
-        transform: translateX(-15%)
-    }
-    to {
-        opacity: 1;
-        -webkit-transform: translateX(0);
-        transform: translateX(0)
-    }
-}
-
-@keyframes moveX {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateX(-15%);
-        transform: translateX(-15%)
-    }
-    to {
-        opacity: 1;
-        -webkit-transform: translateX(0);
-        transform: translateX(0)
-    }
-}
-
-.translateY {
-    -webkit-animation: moveY 1.5s ease-in-out;
-    animation: moveY 1.5s ease-in-out;
-    transition-delay: 0s
-}
-
-@-webkit-keyframes moveY {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(15%);
-        transform: translateY(15%)
-    }
-    to {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        transform: translateY(0)
-    }
-}
-
-@keyframes moveY {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(15%);
-        transform: translateY(15%)
-    }
-    to {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        transform: translateY(0)
-    }
-}
-
-.none {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    width: 100%;
-    padding: 40px 0; /* 위아래 여백 추가 */
-}
-.none img {
-    width: 23%; /* 이미지 크기 조정 */
-    border-radius: 10px; /* 선택: 이미지 둥글게 */
-}
-
-.profile_text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 50px;
-    margin-top: 45px;
-}
-
-.profile_section {
-    margin: 0;
-    padding: 0
-}
-.profile_details {
-    display: flex;
-    align-items: center;       /* 세로 가운데 정렬 */
-    justify-content: center;   /* 가로 가운데 정렬 */
-    gap: 50px;                 /* 이미지와 텍스트 간 간격 */
-    margin: 0 auto;
-    max-width: 1000px;         /* 최대 너비 설정 (원하는 만큼 조절) */
-    padding: 40px 20px;
-}
-.profile_details img {
-    width: 400px;
-    height: auto;
-    border-radius: 8px;
-    object-fit: cover;
-}
-
-.profile_text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-
-.profile_section .profile_sub {
-    display: flex;
-    margin: 100px auto;
-    width: 80%;
-    align-items: center;
-}
-
-.profile_section .profile_sub img {
-    margin-right: 10vw;
-    width: 30vw
-}
-
-.profile_section .profile_sub .profile_text {
-    width: 50vw
-}
-
-.textStyle {
-    display: flex;
-    align-items: flex-start;
-    margin: 10px 0;
-}
-.textStyle .label {
-    width: 10vw; /* 라벨 너비 고정 (예: Name, Email 등) */
-    font-weight: 700;
-    text-align: right;
-    margin-right: 1vw;
-    white-space: nowrap;      /* 줄바꿈 방지 */
-}
-
-.textStyle .value {
-    font-weight: 400;
-    flex: 1;
-    word-break: keep-all; /* 너무 긴 경우 줄 단어 단위로 */
-}
-
-.textStyle span {
-    font: inherit;
-    font-size: 1.5vw;
-    font-weight: 800
-}
-
-.textStyle span:first-child {
-    display: inline-block;
-    margin-right: 3vw;
-    text-align: right;
-    width: 6vw
-}
-.textStyle span:last-child {
-    color: #444;
-    font-weight: 500;
-}
-.textStyle span,
-.textStyle a {
-    font-family: inherit;
-    font-size: 1.5vw;
-    font-weight: 600;
-    color: #222;
-    text-decoration: none;
-    line-height: 1.6;
-}
-.textStyle a:hover {
-    text-decoration: underline;
-    color: #214832;
-}
-
-.project_section ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px; /* 카드 사이 간격 */
-    padding: 0;
-}
-.project_section {
-    margin: 50px;
-    padding: 110px
-}
-
-.project_section .project_sub {
-    margin: 0 auto;
-    width: 80%
-}
-
-.project_section .project_sub ul {
-    font-size: 0;
-    padding: 0
-}
-
-.comp_section {
-    width: 45%;
+ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.comp_section a {
-    display: block;
-    text-decoration: none;
-}
-
-.comp_section a .screen {
-    overflow: hidden;
-    position: relative;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
-
-
-.comp_section a .screen .textDeco {
-    align-items: center;
-    background-color: rgba(0, 0, 0, .3);
-    color: #fff;
-    display: none;
-    font-size: 5vw;
-    font-style: normal;
-    font-weight: 700;
-    height: 100%;
-    position: absolute;
-    width: 100%;
-    z-index: 2
-}
-
-.comp_section a .screen img {
-    width: 100%;
-    height: 300px; /* 고정 높이 */
-    object-fit: cover; /* 비율 맞춰 자르기 */
-    transition: transform 0.5s ease;
-}
-
-.comp_section a:hover .hoverNone {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center
-}
-
-.comp_section a:hover img {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1)
-}
-
-.about_section {
-    margin: 100px 0
-}
-
-.about_sub {
-    height: 60vh;
-    margin: 0 auto;
-    position: relative;
-    width: 80%
-}
-
-.about_section .about_sub ul {
-    display: flex;
-    /*font-size: 0;*/
-    /*margin: 0;*/
-    /*padding: 0;*/
-    transition: transform 0.5s ease-in-out;
-    width: 300%
-}
-
-.about_section .about_sub ul .content_section {
-    font-style: normal;
-    font-weight: 800;
-    height: 60vh;
-    margin: 0 auto;
-    padding: 0 1%;
-    width: 28%
-}
-
-.about_section .about_sub ul img {
-    height: 60vh;
-    width: 100%
-}
-
-.standard {
-    position: absolute;
-    top: 80%;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    z-index: 10;
-}
-
-.standard img {
-    width: 100%;
-    height: auto;
-}
-
-.prev_btn {
-    left: 0;
-}
-
-.next_btn {
-    right: 0;
-}
-
-
-.disabled {
-    opacity: .4;
-    pointer-events: none
-}
-
+/* --- 헤더 --- */
 .header_section {
-    background-color: hsla(0, 0%, 87%, 0.5);
+    background-color: hsla(0, 0%, 100%, 0.8); /* 배경색 약간 투명하게 */
+    backdrop-filter: blur(5px); /* 블러 효과 추가 (지원 브라우저) */
     height: 60px;
     margin: 0;
     padding: 0;
     position: fixed;
     top: 0;
+    left: 0; /* left 추가 */
     width: 100%;
     z-index: 999;
-    left: 0px;
+    border-bottom: 1px solid #eee; /* 하단 경계선 */
 }
 
 .header_section .header_sub {
     align-items: center;
     display: flex;
-    font-size: 2rem;
     font-weight: 900;
-    height: 60px;
+    height: 100%; /* 부모 높이 상속 */
     justify-content: space-between;
-    margin: 0 100px
+    margin: 0 100px;
+    max-width: 1200px; /* 최대 너비 제한 (선택적) */
+    /* margin: 0 auto; /* 최대 너비 사용시 중앙 정렬 */
 }
 .header_logo {
-    font-size: 2vw !important;
+    font-size: 1.8rem !important; /* 크기 조정 */
     font-weight: 900 !important;
     color: black !important;
-}
-
-.header_section .header_sub .header_logo {
-    position: relative;
-    display: inline-block;
+    margin: 0; /* h1 기본 마진 제거 */
     transition: transform 0.2s ease;
-    color: black;
-    font-size: 2vw;
+}
+.header_logo:hover {
+    transform: scale(1.05); /* 약간 커지는 효과 */
 }
 
-.header_section .header_sub .header_logo::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 0%;
-    height: 2px;
-    background-color: #214832;
-    transition: width 0.3s ease;
-}
-.header_section .header_sub .header_logo:hover::after {
-    width: 100%;
-}
-
-.header_section .header_sub ul {
-    display: flex
+.header_section .header_sub nav ul { /* nav 태그 추가 고려 */
+    display: flex;
 }
 
 .header_section .header_sub ul li {
     position: relative;
-    font-size: 1.5rem;
-    padding-left: 50px;
+    font-size: 1.1rem; /* 크기 조정 */
+    font-weight: 500; /* 굵기 조정 */
+    padding: 0 25px; /* 좌우 패딩으로 간격 조정 */
     cursor: pointer;
+    transition: color 0.2s ease;
+}
+.header_section .header_sub ul li:hover {
+    color: #e63946; /* 호버 색상 */
 }
 
+/* 밑줄 효과 제거 또는 다른 효과로 대체 가능 */
+/*
 .header_section .header_sub ul li::after {
     content: "";
     position: absolute;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     bottom: -5px;
     width: 0%;
     height: 2px;
-    background-color: #214832;
+    background-color: #e63946;
     transition: width 0.3s ease;
 }
 .header_section .header_sub ul li:hover::after {
+    width: 80%;
+}
+*/
+
+
+/* --- 메인 섹션 (#home) --- */
+.main_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 120px 50px 50px; /* 헤더 높이 고려한 상단 패딩 */
+    min-height: 80vh; /* 최소 높이 지정 */
+    max-width: 1200px; /* 최대 너비 */
+    margin: 0 auto; /* 중앙 정렬 */
+}
+
+.main_section img {
+    width: 30%; /* 너비 조정 */
+    max-width: 350px; /* 최대 너비 */
+    height: auto;
+    display: block;
+    border-radius: 8px; /* 이미지 모서리 둥글게 */
+}
+.position {
+    max-width: 600px;
+}
+.head_1 {
+    font-size: 3.5rem; /* 폰트 크기 rem 사용 */
+    font-weight: 700;
+    line-height: 1.3; /* 줄간격 조정 */
+    margin-bottom: 1.5rem; /* rem 사용 */
+}
+.head_2 {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.head_2 p {
+    font-size: 1.5rem !important; /* rem 사용 */
+    font-weight: 400; /* 굵기 조정 */
+    line-height: 1.6;
+    margin: 0;
+    color: #333; /* 텍스트 색상 */
+}
+.underline-highlight {
+    display: inline-block;
+    border-bottom: 3px solid #e63946; /* 밑줄 스타일 변경 */
+    line-height: 1;
+    padding-bottom: 2px;
+    font-weight: 600; /* 강조 텍스트 굵기 */
+    color: #1d3557; /* 강조 텍스트 색상 */
+}
+
+/* --- 프로필 섹션 (#profile) --- */
+.profile_section {
+    padding: 100px 50px; /* 상하좌우 패딩 */
+    background-color: #f8f9fa; /* 섹션 배경색 */
+}
+.profile_section_content {
+    max-width: 1000px; /* 최대 너비 */
+    margin: 0 auto; /* 중앙 정렬 */
+}
+#profile h1 { /* 섹션 제목 공통 스타일 */
+    text-align: center;
+    font-size: 2.5rem; /* rem 사용 */
+    margin: 0 auto 60px; /* 상단 마진 제거, 하단 마진 증가 */
+    font-style: italic;
+    color: #1d3557;
+}
+
+.profile_details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 0; /* 내부 패딩 제거 */
+}
+.profile_details img {
+    width: 35%; /* 너비 조정 */
+    max-width: 300px; /* 최대 너비 */
+    height: auto;
+    border-radius: 50%; /* 원형 이미지 */
+    object-fit: cover;
+    border: 5px solid white; /* 테두리 추가 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+.profile_text {
+    flex: 1; /* 남은 공간 차지 */
+}
+.textStyle {
+    display: flex;
+    align-items: flex-start; /* 상단 정렬 유지 */
+    margin: 15px 0; /* 간격 조정 */
+}
+.textStyle span, .textStyle a {
+    font-size: 1.1rem; /* rem 사용 */
+    font-weight: 400; /* 기본 굵기 */
+    color: #333;
+    line-height: 1.6;
+    font-family: inherit;
+}
+.textStyle span:first-child, .textStyle .label { /* 이름:, 이메일: 라벨 부분 */
+    width: 90px; /* 고정 너비 px 사용 */
+    font-weight: 600; /* 라벨 굵기 */
+    text-align: left; /* 왼쪽 정렬 */
+    margin-right: 15px; /* 값과의 간격 */
+    color: #1d3557; /* 라벨 색상 */
+    flex-shrink: 0; /* 줄어들지 않도록 */
+}
+.textStyle span:last-child, .textStyle .value, .textStyle a { /* 실제 내용 부분 */
+    font-weight: 400;
+    color: #555; /* 내용 색상 */
+    word-break: keep-all; /* 단어 단위 줄바꿈 */
+}
+.textStyle a {
+    color: #e63946; /* 링크 색상 */
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+}
+.textStyle a:hover {
+    color: #1d3557; /* 링크 호버 색상 */
+}
+
+
+/* --- 프로젝트 섹션 (#project) --- */
+.project_section {
+    padding: 100px 50px;
+}
+.project_section_content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+#project h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 0 auto 60px;
+    font-style: italic;
+    color: #1d3557;
+}
+.project_list ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px; /* 카드 사이 간격 */
+}
+.comp_section {
+    width: calc(50% - 20px); /* 2열 레이아웃 (gap 고려) */
+    list-style: none;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden; /* 내부 요소 넘침 방지 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.comp_section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+.comp_section a {
+    display: block;
+    text-decoration: none;
+}
+.comp_section a .screen {
+    overflow: hidden;
+    position: relative;
+}
+.comp_section a .screen .textDeco {
+    align-items: center;
+    justify-content: center; /* 텍스트 중앙 정렬 */
+    background-color: rgba(29, 53, 87, 0.7); /* 배경색 변경 */
+    color: #fff;
+    display: flex; /* flex로 변경 */
+    font-size: 1.8rem; /* rem 사용 */
+    font-style: normal;
+    font-weight: 600; /* 굵기 조정 */
+    height: 100%;
     width: 100%;
+    position: absolute;
+    top: 0; left: 0; /* 위치 명시 */
+    z-index: 2;
+    opacity: 0; /* 기본 숨김 */
+    transition: opacity 0.4s ease;
+}
+.comp_section a:hover .textDeco {
+    opacity: 1; /* 호버 시 나타남 */
+}
+.comp_section a .screen img {
+    width: 100%;
+    height: 300px; /* 고정 높이 유지 */
+    object-fit: cover; /* 비율 맞춰 자르기 */
+    display: block; /* 하단 여백 제거 */
+    transition: transform 0.4s ease;
+}
+.comp_section a:hover img {
+    transform: scale(1.05); /* 호버 시 이미지 확대 */
 }
 
-ul {
-    list-style: none
+
+/* --- 스킬 섹션 (#skill) --- */
+.skill_section {
+    padding: 100px 0px; /* 상하 패딩, 좌우 0 */
+    background-color: #f8f9fa; /* 섹션 배경색 */
+    margin-bottom: 0; /* 푸터와 간격 0 */
+}
+#skill h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 0 auto 60px;
+    font-style: italic;
+    color: #1d3557;
+}
+.skill_slider_container {
+    max-width: 1000px; /* 슬라이더 최대 너비 */
+    margin: 0 auto; /* 중앙 정렬 */
+}
+.skill_slider_wrapper {
+    /* 추가 래퍼 필요시 사용 */
 }
 
-.ph_section {
-    background-color: #000;
-    height: 60px;
+/* 슬라이드 컨테이너 (.about_sub) */
+.about_sub {
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    width: 100%; /* 부모 너비 100% */
+    overflow: hidden; /* 슬라이드 영역 밖 내용 숨기기 */
+    /* border: 1px solid #eee; */ /* 영역 확인용 테두리 제거 */
+    padding: 10px 0;
+}
+
+/* 슬라이드 스트립 (ul#slider) */
+#slider {
+    display: flex;
+    /* 너비는 JS에서 슬라이드 개수에 따라 동적으로 설정하는 것이 더 유연함 */
+    /* 여기서는 CSS로 3개 고정 */
+    width: 300%; /* 슬라이드 3개 기준 */
+    transition: transform 0.5s ease-in-out;
     margin: 0;
     padding: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 999
+    height: auto;
 }
 
-.ph_section .ph_sub {
+/* 슬라이드 각 항목 (li) */
+#slider li {
+    list-style: none;
+    flex: 0 0 calc(100% / 3); /* 3개 슬라이드 기준 */
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    min-height: 300px; /* 최소 높이 */
+    overflow: hidden;
+}
+
+/* 슬라이드 이미지 */
+#slider li img {
+    display: block;
+    width: auto; /* 너비 자동 */
+    height: auto; /* 높이 자동 */
+    max-width: 90%; /* li 내부에서 최대 너비 */
+    max-height: 40vh; /* 이미지 최대 높이 제한 */
+    object-fit: contain; /* 비율 유지하며 요소 안에 맞춤 */
+    object-position: center;
+}
+
+/* 슬라이더 버튼 */
+.standard {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px; /* 크기 증가 */
+    height: 40px; /* 크기 증가 */
+    z-index: 10;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
     display: flex;
-    font-size: 2rem;
-    font-weight: 900;
-    height: 60px;
-    justify-content: space-between;
-    margin: 0 100px
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.2s ease;
+}
+.standard:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+.standard img {
+    width: 50%; /* 내부 아이콘 크기 조정 */
+    height: auto;
+}
+.prev_btn { left: 20px; } /* 버튼 위치 조정 */
+.next_btn { right: 20px; } /* 버튼 위치 조정 */
+.disabled {
+    opacity: .4;
+    pointer-events: none;
+    cursor: default;
 }
 
-.ph_section .ph_sub .ph_logo {
-    font: inherit;
-    font-style: normal;
-    margin: 0
+
+/* --- 푸터 --- */
+.footer_section {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #1d3557; /* 푸터 배경색 */
+    color: #a8dadc; /* 푸터 텍스트 색상 */
+    position: relative; /* static으로 변경 가능 */
+}
+.footer_section h1 {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin: 0;
 }
 
-.ph_section .ph_sub .ph_logo a:hover {
-    color: #d3d3d3;
-    cursor: pointer;
-    font-size: 2.01rem
-}
 
-.ph_section ul {
-    display: flex
-}
-
-.ph_section ul a {
-    font-size: 1.5rem;
-    padding-left: 50px
-}
-
-.ph_section ul a:hover {
-    color: #d3d3d3;
-    cursor: pointer;
-    font-size: 1.51rem
-}
-
-a {
-    text-decoration: none
-}
-
+/* --- 프로젝트 상세 페이지 (test01.html, test02.html) --- */
 .pjt_section {
-    margin: 100px 10px
+    padding: 100px 50px 50px; /* 상단 패딩 증가, 좌우 패딩 */
+    max-width: 1000px; /* 최대 너비 */
+    margin: 0 auto; /* 중앙 정렬 */
 }
-
 .pjt_section h1 {
-    font-size: 6rem;
-    font-style: normal;
-    font-weight: 900
+    font-size: 3rem; /* rem 사용 */
+    font-weight: 700; /* 굵기 조정 */
+    text-align: center;
+    margin-bottom: 40px;
+    color: #1d3557;
 }
-
-.pjt_section .text_section, .ts_section {
-    display: flex;
-    flex-wrap: wrap
+.text_section { /* overview, features 등 텍스트 영역 */
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 50px;
 }
-
 .ts_section {
-    margin: 15px 10px;
-    width: 100%
+    display: flex;
+    margin-bottom: 20px; /* 섹션 간 간격 */
+    flex-wrap: wrap; /* 반응형 대비 */
 }
-
 .ts_section .ts_title {
-    font-size: 2.5vw;
-    font-style: normal;
-    font-weight: 900;
-    width: 15vw
+    font-size: 1.3rem; /* rem 사용 */
+    font-weight: 600; /* 굵기 조정 */
+    width: 150px; /* 고정 너비 */
+    flex-shrink: 0; /* 줄어들지 않도록 */
+    color: #1d3557;
 }
-
 .ts_section .ts_content {
-    font-size: 2vw;
-    font-weight: 900;
-    width: 80vw
+    font-size: 1rem; /* rem 사용 */
+    font-weight: 400; /* 굵기 조정 */
+    flex: 1; /* 남은 공간 차지 */
+    color: #555;
+    line-height: 1.6;
+}
+.ts_section .ts_content a { /* Github 등 링크 */
+    color: #e63946;
+    text-decoration: underline;
 }
 
-.pjt_img {
+.pjt_img { /* 이미지 그룹 컨테이너 */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 60px;
-    padding: 60px 20px;
-    background-color: #f9f9f9;  /* 약한 회색 배경 */
-    border: 2px dashed #ccc;     /* 점선 테두리 */
-    border-radius: 12px;
+    padding: 0; /* 패딩 제거 */
+    background-color: transparent; /* 배경 제거 */
+    border: none; /* 테두리 제거 */
     margin-top: 50px;
 }
-.img_group {
+.img_group { /* 개별 이미지 그룹 */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
-    width: 90%;
-    max-width: 1000px;
-    padding: 40px;
-    background-color: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    gap: 20px; /* 이미지 간 간격 */
+    width: 100%;
+    padding: 0; /* 패딩 제거 */
+    background-color: transparent; /* 배경 제거 */
+    border: none; /* 테두리 제거 */
+    box-shadow: none; /* 그림자 제거 */
 }
 .img_group img {
     width: 100%;
-    max-width: 500px;  /* 기존보다 반 정도로 줄이기 */
-    object-fit: contain;
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    border: 1px solid #333;  /* 얇은 검은색 테두리 */
+    max-width: 700px; /* 이미지 최대 너비 */
+    height: auto; /* 높이 자동 */
+    object-fit: contain; /* 비율 유지 */
+    border-radius: 4px; /* 약간 둥글게 */
+    border: 1px solid #ddd; /* 얇은 테두리 */
 }
-.title_p {
-    font-size: 1.8rem;
-    font-weight: 700;
-    font-style: normal;
+.title_p { /* 회원가입, 위시작성 등 제목 */
+    font-size: 1.5rem; /* rem 사용 */
+    font-weight: 600; /* 굵기 조정 */
     margin-bottom: 20px;
     color: #333;
+    text-align: center; /* 중앙 정렬 */
+    width: 100%; /* 너비 100% */
+    padding-bottom: 10px; /* 밑줄과의 간격 */
+    border-bottom: 1px solid #eee; /* 구분선 */
 }
 
-.pjt_img ul {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 200%; /* 슬라이드 수 * 100% */
-}
 
-.pjt_img ul .img_section {
-    width: 100%;
-    flex: 0 0 100%;
-}
-
-.pjt_img ul .img_section img {
-    object-fit: scale-down;
-    /*width: 50%*/
-}
-
-.footer_section {
-    bottom: 0;
-    font-size: 1.5rem;
-    font-weight: 900;
-    margin: 0 20px;
-    padding: 0;
-    position: fixed;
-    right: 0;
-    z-index: 999
-}
-
-.footer_section h1 {
-    font: inherit;
-    font-style: normal;
-}
-
-/*# sourceMappingURL=main.0bcc141e.css.map*/
-
+/* --- 애니메이션 --- */
+/* 스크롤 나타나는 효과 */
 .hidden-on-load {
     opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-out;
+    transform: translateY(30px); /* 이동 거리 줄이기 */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-
 .hidden-on-load.show {
     opacity: 1;
     transform: translateY(0);
 }
-.about_sub ul {
-    display: flex;
-    width: 300%; /* 이미지가 3개니까 100% * 3 */
-    transition: transform 0.5s ease-in-out;
+/* translateX, translateY 애니메이션 제거 또는 수정 */
+.translateX {
+    /* animation: moveX 1.5s ease-in-out; */
 }
+.translateY {
+    /* animation: moveY 1.5s ease-in-out; */
+}
+/* @keyframes 정의 제거 또는 수정 */
 
-.content_section1 {
-    width: 100%;
-    flex: 0 0 100%;
-    margin: 0px 450px;
-}
-.content_section2 {
-    width: 100%;
-    flex: 0 0 100%;
-    margin: 42px -250px;
-}
-.content_section3 {
-    width: 100%;
-    flex: 0 0 100%;
-    margin: 0px 180px;
-}
 
-/* --- 반응형 웹 디자인을 위한 미디어 쿼리 --- */
+/* ====================================================== */
+/* ============== 반응형 웹 디자인을 위한 미디어 쿼리 ============== */
+/* ====================================================== */
 
-/* 중간 화면 크기 (예: 태블릿) - 필요시 여기에 추가 스타일링 */
+/* --- 중간 화면 크기 (예: 태블릿) --- */
 @media (max-width: 1024px) {
     .header_section .header_sub {
-        margin: 0 50px; /* 좌우 여백 줄이기 */
+        margin: 0 50px;
     }
-
-    .profile_details img {
-        width: 300px; /* 이미지 약간 줄이기 */
-    }
-
-    .textStyle span {
-        font-size: 1.8vw; /* 중간 크기 조정 */
-    }
-    .textStyle span:first-child {
-        width: 10vw; /* 라벨 너비 조정 */
-        margin-right: 2vw;
-    }
-
-    .project_section {
-        padding: 80px 30px; /* 패딩 줄이기 */
-    }
-
-    .comp_section {
-        width: 48%; /* 약간 넓게 */
-    }
-
-    .skill_section .about_sub {
-        width: 90%; /* 슬라이더 영역 넓히기 */
-    }
+    .main_section { padding: 100px 30px 40px; gap: 30px; }
+    .head_1 { font-size: 2.8rem; }
+    .head_2 p { font-size: 1.3rem !important; }
+    .profile_section, .project_section, .skill_section, .pjt_section { padding-left: 30px; padding-right: 30px; }
+    .profile_details { gap: 40px; }
+    .profile_details img { max-width: 250px; }
+    .textStyle span, .textStyle a { font-size: 1rem; }
+    .comp_section { width: calc(50% - 15px); } /* gap 고려 */
+    #slider li img { max-height: 35vh; }
+    .ts_section .ts_title { width: 120px; font-size: 1.1rem;}
+    .ts_section .ts_content { font-size: 0.95rem; }
 }
 
 
-/* 작은 화면 크기 (예: 모바일) */
+/* --- 작은 화면 크기 (예: 모바일) --- */
 @media (max-width: 768px) {
     /* --- 헤더 --- */
-    .header_section .header_sub {
-        margin: 0 20px; /* 모바일용 좌우 여백 */
-        font-size: 1.5rem; /* 전체적인 헤더 폰트 크기 조정 */
-    }
-
-    .header_logo {
-        font-size: 1.5rem !important; /* 로고 크기 고정 또는 rem 사용 */
-    }
-
-    /* 모바일에서는 네비게이션 항목을 숨기거나 다른 방식으로 표시할 수 있음 */
-    /* 예시: 네비게이션 항목 숨기기 (햄버거 메뉴 구현 시 사용) */
-    /*
-    .header_section .header_sub nav {
-        display: none;
-    }
-    */
-    /* 임시: 네비게이션 폰트 크기 및 간격 조정 */
-    .header_section .header_sub ul li {
-        font-size: 1rem;
-        padding-left: 15px; /* 간격 줄이기 */
-    }
-    .header_section .header_sub ul li:hover::after {
-        /* 모바일에서는 호버 효과가 불편할 수 있으므로 제거하거나 단순화 */
-        width: 0;
-    }
+    .header_section { height: 50px; }
+    .header_section .header_sub { margin: 0 20px; }
+    .header_logo { font-size: 1.3rem !important; }
+    /* 모바일 네비게이션 처리 (햄버거 메뉴 권장) */
+    /* 임시: 링크 간격 및 크기 조정 */
+    .header_section .header_sub nav { display: none; } /* 메뉴 숨김 */
+    /* .header_section .header_sub ul li { font-size: 1rem; padding: 0 10px; } */
 
 
     /* --- 메인 섹션 (#home) --- */
     .main_section {
-        flex-direction: column; /* 세로 쌓기 */
+        flex-direction: column;
         text-align: center;
-        padding-top: 80px; /* 헤더 높이 고려 */
-        gap: 20px;
+        padding: 80px 20px 40px; /* 상단(헤더높이)+좌우+하단 */
+        gap: 30px;
+        min-height: auto; /* 최소 높이 제거 */
     }
-
     .main_section img {
-        width: 60%; /* 이미지 너비 조정 */
-        margin: 20px auto 0; /* 가운데 정렬 및 위 여백 */
-        order: 1; /* 이미지 아래로 */
+        width: 60%;
+        max-width: 250px;
+        margin: 0 auto; /* 위아래 마진 제거, 좌우 자동 */
+        order: 1;
     }
-
     .main_section .position {
-        margin: 0 auto; /* 가운데 정렬 */
-        max-width: 90%;
-        order: 2; /* 텍스트 위로 */
-        animation: none; /* 모바일에서 애니메이션 제거 (선택적) */
-        text-align: center;
+        max-width: 100%;
+        order: 2;
+        /* animation: none; */ /* 애니메이션 제거 */
     }
+    .head_1 {
+        font-size: 2rem; /* rem 사용 */
+        margin-bottom: 1rem;
+    }
+    .head_2 p {
+        font-size: 1.1rem !important; /* rem 사용 */
+    }
+    .underline-highlight { border-bottom-width: 2px; padding-bottom: 1px; }
 
-    .main_section .position .head_1 {
-        font-size: 6vw; /* 모바일용 폰트 크기 */
-        margin-bottom: 3vw;
-    }
-    .main_section .position .head_2 p,
-    .main_section .position .head_3 {
-        font-size: 4vw; /* 모바일용 폰트 크기 */
-        line-height: 1.5;
-    }
-    .head_2 {
-        justify-content: center; /* 가운데 정렬 */
-    }
-    .underline-highlight {
-        border-bottom-width: 1px; /* 밑줄 얇게 */
-    }
 
     /* --- 프로필 섹션 (#profile) --- */
-    #profile h1, #project h1, #skill h1 {
-        font-size: 7vw; /* 섹션 제목 크기 조정 */
-        margin-top: 80px !important; /* 상단 여백 통일 */
-        margin-bottom: 5% !important;
+    .profile_section, .project_section, .skill_section { padding: 60px 20px; } /* 섹션 패딩 조정 */
+    #profile h1, #project h1, #skill h1 { /* 섹션 제목 */
+        font-size: 1.8rem;
+        margin-bottom: 40px;
     }
-
     .profile_details {
-        flex-direction: column; /* 세로 쌓기 */
+        flex-direction: column;
         gap: 30px;
-        padding: 20px;
-        max-width: 90%;
+        max-width: 100%;
     }
-
     .profile_details img {
-        width: 70%; /* 이미지 너비 조정 */
-        max-width: 250px; /* 최대 너비 제한 */
-        margin: 0 auto; /* 가운데 정렬 */
+        width: 50%;
+        max-width: 180px;
+        border-width: 3px;
     }
-
-    .profile_text {
-        margin: 0;
-        width: 100%;
-        text-align: center;
-    }
-
+    .profile_text { width: 100%; text-align: center; }
     .textStyle {
-        flex-direction: column; /* 라벨과 값 세로 쌓기 */
-        align-items: center; /* 가운데 정렬 */
-        margin: 15px 0;
+        flex-direction: column;
+        align-items: center;
+        margin: 10px 0;
     }
-
-    .textStyle span, .textStyle a {
-        font-size: 4vw; /* 모바일용 폰트 크기 */
-        text-align: center;
-    }
-    /* 이름:, 이메일: 같은 라벨 스타일 */
-    .textStyle span:first-child {
-        width: auto; /* 자동 너비 */
-        margin-right: 0; /* 오른쪽 여백 제거 */
-        margin-bottom: 5px; /* 값과의 간격 */
-        font-weight: 700; /* 약간 강조 */
-        text-align: center;
-    }
-    .textStyle span:last-child, .textStyle a {
-        font-weight: 400; /* 일반 굵기 */
-        color: #333;
-    }
-
-    .textStyle .label { /* 교육수료 라벨 */
+    .textStyle span, .textStyle a { font-size: 0.95rem; }
+    .textStyle span:first-child, .textStyle .label { /* 라벨 */
         width: auto;
-        text-align: center;
         margin-right: 0;
-        margin-bottom: 5px;
-    }
-    .textStyle .value { /* 교육수료 값 */
+        margin-bottom: 3px;
         text-align: center;
     }
 
 
     /* --- 프로젝트 섹션 (#project) --- */
-    .project_section {
-        margin: 30px 0;
-        padding: 40px 15px; /* 상하좌우 패딩 줄이기 */
-    }
+    .project_section ul { gap: 20px; }
+    .comp_section { width: 100%; /* 1열 레이아웃 */ }
+    .comp_section a .screen .textDeco { font-size: 1.5rem; }
+    .comp_section a .screen img { height: 250px; }
 
-    .project_section ul {
-        gap: 30px; /* 카드 간격 줄이기 */
-    }
-
-    .comp_section {
-        width: 90%; /* 카드 너비 거의 꽉 차게 */
-    }
-
-    .comp_section a .screen .textDeco {
-        font-size: 8vw; /* 모바일용 텍스트 크기 */
-    }
 
     /* --- 스킬 섹션 (#skill) --- */
-    #skill h1 {
-        margin-bottom: -5% !important; /* 제목과 슬라이더 간격 조정 */
-    }
-    .skill_slider_container {
-        margin-top: 10%; /* 제목과 슬라이더 간격 조정 */
-    }
-
-    .skill_section .about_sub {
-        width: 95%; /* 슬라이더 영역 너비 */
-        height: auto; /* 높이 자동 조절 */
-    }
-    /* 슬라이더 내부 컨텐츠 마진 제거 */
-    .content_section1, .content_section2, .content_section3 {
-        margin: 0 auto; /* 좌우 마진 제거하고 가운데 정렬 */
-        padding: 0 5px; /* 약간의 내부 패딩 */
-    }
-    /* 슬라이더 이미지 높이 자동 조절 */
-    .skill_section .about_sub ul img {
-        height: auto; /* 이미지 높이 자동 */
-    }
-
-
-    .standard { /* 슬라이더 버튼 위치 조정 */
-        top: 50%; /* 수직 중앙으로 이동 */
-        transform: translateY(-50%);
-        width: 25px; /* 버튼 크기 약간 줄이기 */
-        height: 25px;
-    }
+    .skill_slider_container { width: 90%; /* 슬라이더 좌우 여백 */ }
+    #slider li { min-height: auto; padding: 5px; } /* 최소 높이 제거 */
+    #slider li img { max-height: 30vh; max-width: 100%; } /* 이미지 크기 조정 */
+    .standard { width: 30px; height: 30px; } /* 버튼 크기 */
     .prev_btn { left: 5px; }
     .next_btn { right: 5px; }
 
 
-    /* --- 프로젝트 상세 페이지 (test01.html, test02.html) --- */
-    .pjt_section {
-        margin: 80px 10px 20px; /* 상단 여백 확보, 좌우/하단 줄이기 */
-    }
-
-    .pjt_section h1 {
-        font-size: 8vw; /* 제목 크기 */
-    }
-
-    .ts_section {
-        flex-direction: column; /* 세로 쌓기 */
-        margin: 10px 0;
-        align-items: center; /* 가운데 정렬 */
-        text-align: center;
-    }
-
-    .ts_section .ts_title {
-        width: 100%; /* 너비 꽉 채우기 */
-        font-size: 5vw; /* 모바일용 제목 크기 */
-        margin-bottom: 5px;
-    }
-
-    .ts_section .ts_content {
-        width: 95%; /* 너비 조정 */
-        font-size: 3.8vw; /* 모바일용 내용 크기 */
-        font-weight: 400; /* 가독성 위해 굵기 조정 */
-    }
-
-    .pjt_img {
-        padding: 30px 10px; /* 내부 패딩 조정 */
-        margin-top: 30px;
-        border-width: 1px; /* 테두리 얇게 */
-    }
-    .img_group {
-        padding: 20px; /* 내부 패딩 조정 */
-        gap: 15px; /* 이미지 간격 */
-    }
-    .img_group img {
-        max-width: 100%; /* 이미지 그룹 너비에 맞춤 */
-        border: none; /* 모바일에서 테두리 제거 (선택적) */
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* 그림자 약하게 */
-    }
-    .title_p {
-        font-size: 1.5rem; /* 이미지 그룹 제목 */
-    }
-
-
     /* --- 푸터 --- */
     .footer_section {
-        font-size: 1rem; /* 폰트 크기 줄이기 */
-        margin: 0 10px 10px; /* 여백 조정 */
-        padding: 5px;
-        position: static; /* 모바일에서는 static으로 변경하여 흐름 유지 */
-        text-align: center;
-        background-color: #f0f0f0; /* 배경색 추가 (선택적) */
-        width: auto; /* 너비 자동 */
+        padding: 20px 15px;
+        position: static; /* 스크롤 따라가지 않음 */
     }
-    .footer_section h1 {
-        font-size: 1rem;
-    }
+    .footer_section h1 { font-size: 0.8rem; }
+
+
+    /* --- 프로젝트 상세 페이지 --- */
+    .pjt_section { padding: 80px 20px 40px; }
+    .pjt_section h1 { font-size: 2rem; margin-bottom: 30px;}
+    .text_section { padding: 20px; margin-bottom: 40px; }
+    .ts_section { flex-direction: column; align-items: flex-start; margin-bottom: 15px; }
+    .ts_section .ts_title { width: 100%; font-size: 1.1rem; margin-bottom: 5px; text-align: left;}
+    .ts_section .ts_content { width: 100%; font-size: 0.9rem; text-align: left;}
+    .img_group { gap: 15px; }
+    .title_p { font-size: 1.2rem; }
 
 
     /* --- 애니메이션 비활성화 (선택적) --- */
-    .hidden-on-load {
-        opacity: 1;
-        transform: none;
-        transition: none;
-    }
-    .translateX, .translateY {
-        animation: none;
-    }
+    .hidden-on-load { opacity: 1; transform: none; transition: none; }
+    .translateX, .translateY { animation: none; }
 
 } /* End of @media (max-width: 768px) */
 
 
-/* 더 작은 화면을 위한 추가 조정 (선택적) */
+/* --- 더 작은 화면 (선택적) --- */
 @media (max-width: 480px) {
-    .main_section .position .head_1 { font-size: 7vw; }
-    .main_section .position .head_2 p, .main_section .position .head_3 { font-size: 5vw; }
-    .profile_details img { width: 80%; }
-    .textStyle span, .textStyle a { font-size: 4.5vw; }
-    .ts_section .ts_title { font-size: 6vw; }
-    .ts_section .ts_content { font-size: 4.2vw; }
-    .title_p { font-size: 1.3rem; }
-    .header_section .header_sub ul li { font-size: 0.9rem; padding-left: 10px; }
+    .head_1 { font-size: 1.8rem; }
+    .head_2 p { font-size: 1rem !important; }
+    #profile h1, #project h1, #skill h1, .pjt_section h1 { font-size: 1.6rem; }
+    .profile_details img { width: 60%; max-width: 150px; }
+    .textStyle span, .textStyle a { font-size: 0.9rem; }
+    .comp_section a .screen img { height: 200px; }
+    #slider li img { max-height: 25vh; }
+    .ts_section .ts_title { font-size: 1rem; }
+    .ts_section .ts_content { font-size: 0.85rem; }
+    .title_p { font-size: 1.1rem; }
 }

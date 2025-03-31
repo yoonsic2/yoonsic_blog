@@ -97,15 +97,14 @@
     </section>
 
     <section id="skill" class="skill_section">
-      <h1 class="hidden-on-load" style="text-align: center; margin: 200px auto -1%; font-style: italic; font-variant: inherit; font-weight: 900; font-stretch: inherit; font-size: 3vw; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit;">
-        Skill</h1>
+      <h1 class="hidden-on-load">Skill</h1>
       <div class="skill_slider_container">
         <div class="skill_slider_wrapper hidden-on-load">
           <div class="about_sub">
             <ul id="slider">
-              <li class="content_section1"><img alt="스킬 이미지 1" src="img/skill1.png"></li>
-              <li class="content_section2"><img alt="스킬 이미지 2" src="img/skill2.png"></li>
-              <li class="content_section3"><img alt="스킬 이미지 3" src="img/skill3.png"></li>
+              <li><img alt="스킬 이미지 1" src="img/skill1.png"></li>
+              <li><img alt="스킬 이미지 2" src="img/skill2.png"></li>
+              <li><img alt="스킬 이미지 3" src="img/skill3.png"></li>
             </ul>
             <div class="standard prev_btn"><img src="img/prev-ico.png" alt="이전 슬라이드"></div>
             <div class="standard next_btn"><img src="img/next-ico.png" alt="다음 슬라이드"></div>
@@ -120,8 +119,7 @@
   </div>
 </div>
 <script>
-  // JavaScript 코드는 변경 없이 그대로 사용 가능합니다.
-  // (표준 웹 API를 사용하고 특정 서버 기술에 의존하지 않음)
+  // JavaScript 코드는 변경 없이 그대로 사용 가능
 
   // --- 전역 함수: 부드러운 스크롤 ---
   function scrollToSection(id) {
@@ -142,7 +140,7 @@
         }
         // 필요시: else { entry.target.classList.remove('show'); }
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.1 }); // threshold 조정 (0.1 ~ 0.3 권장)
 
     const hiddenElements = document.querySelectorAll('.hidden-on-load');
     hiddenElements.forEach(el => observer.observe(el));
@@ -167,19 +165,30 @@
 
     if (!slider || !prevBtn || !nextBtn) {
       console.warn("슬라이더 관련 요소를 찾을 수 없습니다.");
-      return;
+      return; // early return
     }
 
     let currentIndex = 0;
-    const totalSlides = slider.children.length;
+    // children이 Element가 아닐 수 있으므로, li만 필터링
+    const slides = Array.from(slider.children).filter(el => el.tagName === 'LI');
+    const totalSlides = slides.length;
 
     function updateSlider() {
+      if (totalSlides === 0) return; // 슬라이드가 없으면 실행 중지
+
+      // 현재 인덱스에 따라 X축 이동 거리 계산
       const offset = currentIndex * -100;
-      slider.style.transform = `translateX(${offset}%)`;
+      // slider 요소의 transform 스타일을 변경하여 슬라이드 이동
+      slider.style.transform = `translateX(${offset / totalSlides}%)`; // 전체 너비 대비 이동률 계산
+
+
+      // 첫 번째 슬라이드일 경우 이전 버튼 비활성화
       prevBtn.classList.toggle('disabled', currentIndex === 0);
+      // 마지막 슬라이드일 경우 다음 버튼 비활성화
       nextBtn.classList.toggle('disabled', currentIndex === totalSlides - 1);
     }
 
+    // 이전 버튼 클릭 이벤트
     prevBtn.addEventListener('click', () => {
       if (currentIndex > 0) {
         currentIndex--;
@@ -187,6 +196,7 @@
       }
     });
 
+    // 다음 버튼 클릭 이벤트
     nextBtn.addEventListener('click', () => {
       if (currentIndex < totalSlides - 1) {
         currentIndex++;
@@ -194,8 +204,11 @@
       }
     });
 
+    // 페이지 로드 시 초기 슬라이더 상태 설정
     if (totalSlides > 0) {
-      updateSlider();
+      // 초기 슬라이드 너비 계산을 위해 약간의 지연 후 실행 (선택적)
+      // requestAnimationFrame(() => updateSlider());
+      updateSlider(); // 즉시 실행해도 대부분 문제 없음
     }
 
   }); // End of DOMContentLoaded listener
