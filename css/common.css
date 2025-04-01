@@ -370,7 +370,7 @@ ul {
     width: auto; /* 너비 자동 */
     height: auto; /* 높이 자동 */
     max-width: 90%; /* li 내부에서 최대 너비 */
-    max-height: 40vh; /* 이미지 최대 높이 제한 */
+    /*max-height: 40vh; !* 이미지 최대 높이 제한 *!*/
     object-fit: contain; /* 비율 유지하며 요소 안에 맞춤 */
     object-position: center;
 }
